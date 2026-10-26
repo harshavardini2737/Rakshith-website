@@ -1,0 +1,1875 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>The Rakshith Effect ❤️</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    min-height:100vh;
+    background:#111;
+    color:white;
+    font-family:Arial,sans-serif;
+    overflow-x:hidden;
+}
+
+.screen{
+    width:90%;
+    max-width:700px;
+    min-height:100vh;
+    margin:auto;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+.hidden{
+    display:none !important;
+}
+
+h1{
+    font-size:42px;
+    margin-bottom:20px;
+}
+
+.message{
+    color:#ddd;
+    font-size:18px;
+    line-height:1.7;
+    margin-bottom:30px;
+}
+
+button{
+    padding:14px 30px;
+    border:none;
+    border-radius:30px;
+    background:#f4c542;
+    color:#111;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+}
+
+button:hover{
+    transform:scale(1.06);
+}
+
+.back{
+    background:#292929;
+    color:white;
+}
+
+
+/* =========================
+   OPENING
+========================= */
+
+.warning{
+    color:#aaa;
+    letter-spacing:3px;
+    margin-bottom:20px;
+}
+
+.heart{
+    margin-top:25px;
+    color:#777;
+}
+
+
+/* =========================
+   SCAN
+========================= */
+
+.scanner{
+    position:relative;
+    width:100%;
+    height:330px;
+    background:#181818;
+    border:1px solid #333;
+    border-radius:20px;
+    padding:25px;
+    text-align:left;
+    overflow:hidden;
+    margin-bottom:25px;
+}
+
+.scan-line{
+    position:absolute;
+    left:0;
+    width:100%;
+    height:3px;
+    background:#f4c542;
+    box-shadow:0 0 15px #f4c542;
+    animation:scan 2.5s linear infinite;
+}
+
+@keyframes scan{
+    0%{top:0}
+    50%{top:100%}
+    100%{top:0}
+}
+
+.scan-text{
+    color:#f4c542;
+    font-size:14px;
+    letter-spacing:2px;
+    margin-bottom:20px;
+}
+
+.progress-container{
+    width:100%;
+    height:8px;
+    background:#333;
+    border-radius:10px;
+    overflow:hidden;
+}
+
+.progress{
+    width:0%;
+    height:100%;
+    background:#f4c542;
+    transition:width .2s;
+}
+
+.percentage{
+    text-align:right;
+    color:#aaa;
+    font-size:13px;
+    margin:8px 0 20px;
+}
+
+.result{
+    margin:13px 0;
+    font-size:16px;
+    opacity:0;
+    transform:translateX(-15px);
+    transition:.5s;
+}
+
+.result.show{
+    opacity:1;
+    transform:translateX(0);
+}
+
+.status{
+    float:right;
+    font-weight:bold;
+}
+
+.green{
+    color:#8cff8c;
+}
+
+.yellow{
+    color:#f4c542;
+}
+
+
+/* =========================
+   NOTICE INTRO
+========================= */
+
+.notice-intro p{
+    color:#aaa;
+    margin-top:12px;
+}
+
+
+/* =========================
+   NOTICE CARDS
+========================= */
+
+.notice-card{
+    background:#1b1b1b;
+    border:1px solid #333;
+    border-radius:22px;
+    padding:35px 28px;
+    min-height:290px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    box-shadow:0 0 30px rgba(244,197,66,.08);
+}
+
+.number{
+    color:#f4c542;
+    font-size:14px;
+    letter-spacing:3px;
+    margin-bottom:18px;
+}
+
+.notice-card h2{
+    font-size:30px;
+    margin-bottom:20px;
+}
+
+.notice-card p{
+    color:#ddd;
+    line-height:1.8;
+    font-size:17px;
+}
+
+.navigation{
+    margin-top:25px;
+    display:flex;
+    justify-content:center;
+    gap:15px;
+}
+
+.fade{
+    animation:fadeCard .5s ease;
+}
+
+@keyframes fadeCard{
+    from{
+        opacity:0;
+        transform:translateX(25px);
+    }
+    to{
+        opacity:1;
+        transform:translateX(0);
+    }
+}
+
+
+/* =========================
+   MOOD
+========================= */
+
+.mood-title{
+    margin-bottom:10px;
+}
+
+.mood-subtitle{
+    color:#aaa;
+    font-size:17px;
+    margin-bottom:35px;
+}
+
+.mood-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+}
+
+.mood-button{
+    background:#1b1b1b;
+    color:white;
+    border:1px solid #333;
+    border-radius:20px;
+    padding:28px 15px;
+    font-size:17px;
+    transition:all .3s;
+}
+
+.mood-button:hover{
+    background:#242424;
+    border-color:#f4c542;
+    transform:translateY(-5px);
+}
+
+
+/* =========================
+   MOOD RESPONSE
+========================= */
+
+.mood-response{
+    animation:responseIn .8s ease;
+}
+
+@keyframes responseIn{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.response-icon{
+    font-size:65px;
+    margin-bottom:25px;
+    animation:heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat{
+    0%{transform:scale(1)}
+    50%{transform:scale(1.12)}
+    100%{transform:scale(1)}
+}
+
+.response-box{
+    background:#1b1b1b;
+    border:1px solid #333;
+    border-radius:22px;
+    padding:35px 28px;
+    margin-bottom:25px;
+    box-shadow:0 0 35px rgba(244,197,66,.08);
+}
+
+.response-box h2{
+    font-size:30px;
+    margin-bottom:20px;
+}
+
+.response-box p{
+    color:#ddd;
+    line-height:1.9;
+    font-size:17px;
+}
+
+
+/* =========================
+   IF YOU WERE HERE
+========================= */
+
+.here-screen{
+    position:relative;
+}
+
+.small-line{
+    color:#aaa;
+    font-size:15px;
+    letter-spacing:2px;
+    margin-bottom:35px;
+    animation:fadeUp 1s ease;
+}
+
+.here-title{
+    font-size:48px;
+    line-height:1.2;
+    margin-bottom:20px;
+    animation:fadeUp 1.2s ease;
+}
+
+.big-heart{
+    font-size:55px;
+    margin-bottom:45px;
+    animation:heartFloat 2s infinite;
+}
+
+.here-lines{
+    display:flex;
+    flex-direction:column;
+    gap:24px;
+    color:#ddd;
+    font-size:19px;
+    line-height:1.6;
+}
+
+.here-line{
+    opacity:0;
+    animation:lineAppear 1s forwards;
+}
+
+.here-line:nth-child(1){animation-delay:.4s}
+.here-line:nth-child(2){animation-delay:1s}
+.here-line:nth-child(3){animation-delay:1.6s}
+.here-line:nth-child(4){animation-delay:2.2s}
+
+.here-final{
+    margin-top:40px;
+    font-size:22px;
+    font-weight:bold;
+    opacity:0;
+    animation:lineAppear 1s forwards;
+    animation-delay:2.9s;
+}
+
+.here-buttons{
+    margin-top:45px;
+    display:flex;
+    gap:15px;
+    opacity:0;
+    animation:lineAppear 1s forwards;
+    animation-delay:3.4s;
+}
+
+@keyframes lineAppear{
+    from{
+        opacity:0;
+        transform:translateY(15px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes heartFloat{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-8px);
+    }
+}
+
+
+/* =========================
+   NOTHING FANCY
+========================= */
+
+.future-screen{
+    padding:60px 0;
+}
+
+.future-small{
+    color:#aaa;
+    font-size:15px;
+    letter-spacing:2px;
+    margin-bottom:25px;
+}
+
+.future-title{
+    font-size:50px;
+    margin-bottom:15px;
+}
+
+.future-subtitle{
+    font-size:23px;
+    color:#ddd;
+    margin-bottom:45px;
+}
+
+.future-list{
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+}
+
+.future-item{
+    background:#181818;
+    border:1px solid #292929;
+    border-radius:15px;
+    padding:18px 20px;
+    color:#ddd;
+    font-size:17px;
+    text-align:left;
+    opacity:0;
+    transform:translateY(20px);
+    animation:futureAppear .7s forwards;
+}
+
+.future-item:nth-child(1){animation-delay:.3s}
+.future-item:nth-child(2){animation-delay:.6s}
+.future-item:nth-child(3){animation-delay:.9s}
+.future-item:nth-child(4){animation-delay:1.2s}
+.future-item:nth-child(5){animation-delay:1.5s}
+.future-item:nth-child(6){animation-delay:1.8s}
+.future-item:nth-child(7){animation-delay:2.1s}
+
+@keyframes futureAppear{
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.future-pause{
+    margin-top:45px;
+    color:#aaa;
+    font-size:18px;
+    opacity:0;
+    animation:lineAppear 1s forwards;
+    animation-delay:2.7s;
+}
+
+.future-final{
+    margin-top:25px;
+    font-size:30px;
+    line-height:1.5;
+    font-weight:bold;
+    opacity:0;
+    animation:lineAppear 1s forwards;
+    animation-delay:3.2s;
+}
+
+.future-secret{
+    margin-top:25px;
+    color:#aaa;
+    font-size:16px;
+    opacity:0;
+    animation:lineAppear 1s forwards;
+    animation-delay:3.8s;
+}
+
+.future-buttons{
+    margin-top:45px;
+    display:flex;
+    gap:15px;
+    opacity:0;
+    animation:lineAppear 1s forwards;
+    animation-delay:4.2s;
+}
+
+
+/* =========================
+   FINAL PAGE
+========================= */
+
+.final-screen{
+    position:relative;
+    padding:70px 0;
+    overflow:hidden;
+}
+
+.final-content{
+    width:100%;
+    animation:finalReveal 2s ease forwards;
+}
+
+@keyframes finalReveal{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.final-small{
+    color:#aaa;
+    font-size:14px;
+    letter-spacing:2px;
+    margin-bottom:35px;
+    opacity:0;
+    animation:finalFade 1.5s ease forwards;
+}
+
+.final-title{
+    font-size:34px;
+    line-height:1.3;
+    margin-bottom:35px;
+    opacity:0;
+    animation:finalFade 1.5s ease forwards;
+    animation-delay:.5s;
+}
+
+.final-letter{
+    background:#181818;
+    border:1px solid #292929;
+    border-radius:25px;
+    padding:40px 30px;
+    text-align:left;
+    box-shadow:0 0 45px rgba(244,197,66,.06);
+    opacity:0;
+    animation:finalFade 1.5s ease forwards;
+    animation-delay:1s;
+}
+
+.final-letter p{
+    color:#ddd;
+    font-size:18px;
+    line-height:1.9;
+    margin-bottom:25px;
+}
+
+.final-letter .highlight{
+    color:white;
+    font-weight:bold;
+    font-size:21px;
+}
+
+.final-letter .big-highlight{
+    color:white;
+    font-size:22px;
+    font-weight:bold;
+    line-height:1.7;
+}
+
+.final-pause{
+    text-align:center;
+    color:#777;
+    font-size:20px;
+    letter-spacing:5px;
+    margin:35px 0;
+    opacity:0;
+    animation:finalFade 1.5s ease forwards;
+    animation-delay:3s;
+}
+
+.final-question{
+    font-size:34px;
+    line-height:1.4;
+    margin-bottom:25px;
+    opacity:0;
+    animation:finalFade 1.5s ease forwards;
+    animation-delay:3.5s;
+}
+
+.final-main{
+    font-size:28px;
+    line-height:1.6;
+    font-weight:bold;
+    margin-bottom:35px;
+    opacity:0;
+    animation:finalFade 1.5s ease forwards;
+    animation-delay:4.2s;
+}
+
+.signature{
+    color:#ddd;
+    font-size:18px;
+    line-height:1.8;
+    opacity:0;
+    animation:finalFade 1.5s ease forwards;
+    animation-delay:4.8s;
+}
+
+.signature strong{
+    color:#f4c542;
+    font-size:22px;
+}
+
+.final-footer{
+    margin-top:70px;
+    padding-top:25px;
+    border-top:1px solid #292929;
+    color:#f4c542;
+    font-size:15px;
+    letter-spacing:2px;
+    opacity:0;
+    animation:finalFade 1.5s ease forwards;
+    animation-delay:5.5s;
+}
+
+.final-footer span{
+    display:block;
+    color:#777;
+    font-size:12px;
+    letter-spacing:1px;
+    margin-top:10px;
+}
+
+.final-heart{
+    font-size:55px;
+    margin-bottom:25px;
+    animation:heartbeat 1.7s infinite;
+}
+
+.final-buttons{
+    margin-top:45px;
+    opacity:0;
+    animation:finalFade 1.5s ease forwards;
+    animation-delay:6s;
+}
+
+@keyframes finalFade{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:600px){
+
+    h1{
+        font-size:32px;
+    }
+
+    .mood-grid{
+        grid-template-columns:1fr;
+    }
+
+    .scanner{
+        height:auto;
+        min-height:350px;
+    }
+
+    .here-title{
+        font-size:35px;
+    }
+
+    .future-title{
+        font-size:38px;
+    }
+
+    .future-subtitle{
+        font-size:19px;
+    }
+
+    .future-final{
+        font-size:24px;
+    }
+
+    .final-title{
+        font-size:28px;
+    }
+
+    .final-letter{
+        padding:30px 22px;
+    }
+
+    .final-letter p{
+        font-size:16px;
+    }
+
+    .final-letter .highlight{
+        font-size:19px;
+    }
+
+    .final-letter .big-highlight{
+        font-size:20px;
+    }
+
+    .final-question{
+        font-size:29px;
+    }
+
+    .final-main{
+        font-size:23px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- ==================================================
+     OPENING
+================================================== -->
+
+<div class="screen" id="opening">
+
+    <div class="warning">
+        ⚠️ WARNING
+    </div>
+
+    <h1>
+        The Rakshith Effect ❤️
+    </h1>
+
+    <p class="message">
+        This website contains an unusually high amount of Rakshith.
+        <br>
+        Proceed only if you're ready. 👀
+    </p>
+
+    <button onclick="startScan()">
+        ENTER ❤️
+    </button>
+
+    <div class="heart">
+        made by your girl 🫶
+    </div>
+
+</div>
+
+
+<!-- ==================================================
+     SCAN
+================================================== -->
+
+<div class="screen hidden" id="scanScreen">
+
+    <h1>
+        🔍 Scanning Rakshith...
+    </h1>
+
+    <div class="scanner">
+
+        <div class="scan-line"></div>
+
+        <div class="scan-text">
+            ANALYZING SUBJECT...
+        </div>
+
+        <div class="progress-container">
+            <div class="progress" id="progress"></div>
+        </div>
+
+        <div class="percentage">
+            <span id="percentage">0</span>%
+        </div>
+
+
+        <div class="result" id="r1">
+            Favourite person
+            <span class="status green">
+                DETECTED ❤️
+            </span>
+        </div>
+
+
+        <div class="result" id="r2">
+            Makes Harsha smile
+            <span class="status green">
+                100%
+            </span>
+        </div>
+
+
+        <div class="result" id="r3">
+            Annoying
+            <span class="status yellow">
+                99.9%
+            </span>
+        </div>
+
+
+        <div class="result" id="r4">
+            Lives rent-free in Harsha's mind
+            <span class="status green">
+                CONFIRMED
+            </span>
+        </div>
+
+
+        <div class="result" id="r5">
+            Escape from Harsha
+            <span class="status yellow">
+                FAILED 😭
+            </span>
+        </div>
+
+
+        <div class="result" id="r6">
+            Permanently stuck with Harsha
+            <span class="status green">
+                CONFIRMED ❤️
+            </span>
+        </div>
+
+    </div>
+
+
+    <button
+        id="continueBtn"
+        onclick="showNoticeIntro()"
+        style="display:none;">
+
+        Scan complete... 👀
+
+    </button>
+
+</div>
+
+
+<!-- ==================================================
+     NOTICE INTRO
+================================================== -->
+
+<div class="screen hidden" id="noticeIntro">
+
+    <div class="notice-intro">
+
+        <div style="font-size:45px;">
+            👀
+        </div>
+
+        <h1>
+            There are things...
+        </h1>
+
+        <p>
+            about you that you probably don't realise I notice.
+        </p>
+
+    </div>
+
+    <button onclick="startNotices()">
+        SHOW ME 👀
+    </button>
+
+</div>
+
+
+<!-- ==================================================
+     NOTICE CARDS
+================================================== -->
+
+<div class="screen hidden" id="noticeScreen">
+
+    <div class="notice-card fade" id="noticeCard">
+
+        <div class="number" id="noticeNumber">
+            01 / 05
+        </div>
+
+        <h2 id="noticeTitle">
+            Your Voice 🎧
+        </h2>
+
+        <p id="noticeText">
+            Un voice-ku enna special nu ennaala explain panna mudiyadhu...
+        </p>
+
+    </div>
+
+
+    <div class="navigation">
+
+        <button
+            class="back"
+            onclick="previousNotice()">
+
+            ← BACK
+
+        </button>
+
+        <button onclick="nextNotice()">
+
+            NEXT →
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- ==================================================
+     MOOD
+================================================== -->
+
+<div class="screen hidden" id="moodScreen">
+
+    <h1 class="mood-title">
+        Okay, Rakshith... ❤️
+    </h1>
+
+    <p class="mood-subtitle">
+        What do you need from me right now?
+    </p>
+
+
+    <div class="mood-grid">
+
+        <button
+            class="mood-button"
+            onclick="showMood('miss')">
+
+            🥺
+            <br><br>
+            I miss you
+
+        </button>
+
+
+        <button
+            class="mood-button"
+            onclick="showMood('bad')">
+
+            😔
+            <br><br>
+            I had a bad day
+
+        </button>
+
+
+        <button
+            class="mood-button"
+            onclick="showMood('angry')">
+
+            😤
+            <br><br>
+            I'm angry
+
+        </button>
+
+
+        <button
+            class="mood-button"
+            onclick="showMood('want')">
+
+            ❤️
+            <br><br>
+            I just want you
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- ==================================================
+     MOOD RESPONSE
+================================================== -->
+
+<div class="screen hidden" id="responseScreen">
+
+    <div class="mood-response">
+
+        <div
+            class="response-icon"
+            id="responseIcon">
+
+            ❤️
+
+        </div>
+
+
+        <div class="response-box">
+
+            <h2 id="responseTitle">
+                Come here. 🫂
+            </h2>
+
+            <p id="responseText">
+                Then come here.
+                No explanations.
+                No fixing anything.
+                Just stay with me for a while. ❤️
+            </p>
+
+        </div>
+
+
+        <div class="navigation">
+
+            <button
+                class="back"
+                onclick="backToMood()">
+
+                ← BACK
+
+            </button>
+
+            <button onclick="showHerePage()">
+
+                NEXT ❤️
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ==================================================
+     IF YOU WERE HERE
+================================================== -->
+
+<div class="screen hidden here-screen" id="hereScreen">
+
+    <div class="small-line">
+        Just imagine this for a second...
+    </div>
+
+
+    <h1 class="here-title">
+        If you were here right now...
+    </h1>
+
+
+    <div class="big-heart">
+        ❤️
+    </div>
+
+
+    <div class="here-lines">
+
+        <div class="here-line">
+            I'd probably look at you first.
+        </div>
+
+        <div class="here-line">
+            Then smile for no reason. 😌
+        </div>
+
+        <div class="here-line">
+            Maybe tease you a little.
+        </div>
+
+        <div class="here-line">
+            Then sit close to you without saying much.
+        </div>
+
+    </div>
+
+
+    <div class="here-final">
+        And honestly...
+        <br><br>
+        I wouldn't want that moment to end. ❤️
+    </div>
+
+
+    <div class="here-buttons">
+
+        <button
+            class="back"
+            onclick="backToResponse()">
+
+            ← BACK
+
+        </button>
+
+        <button onclick="showFuturePage()">
+
+            NEXT ❤️
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- ==================================================
+     NOTHING FANCY
+================================================== -->
+
+<div class="screen hidden future-screen" id="futureScreen">
+
+    <div class="future-small">
+        SOMETHING I SECRETLY WANT...
+    </div>
+
+
+    <h1 class="future-title">
+        Nothing Fancy.
+    </h1>
+
+
+    <div class="future-subtitle">
+        I don't want a perfect life with you.
+        <br>
+        I just want our normal life.
+    </div>
+
+
+    <div class="future-list">
+
+        <div class="future-item">
+            Waking up and annoying you. 😭
+        </div>
+
+        <div class="future-item">
+            Fighting over what to eat.
+        </div>
+
+        <div class="future-item">
+            Randomly going out without a plan.
+        </div>
+
+        <div class="future-item">
+            Sitting together doing absolutely nothing.
+        </div>
+
+        <div class="future-item">
+            You telling me about your day.
+        </div>
+
+        <div class="future-item">
+            Me disturbing you while you're busy. 😌
+        </div>
+
+        <div class="future-item">
+            Laughing at something only we find funny.
+        </div>
+
+    </div>
+
+
+    <div class="future-pause">
+        ...
+    </div>
+
+
+    <div class="future-final">
+
+        Nothing fancy.
+        <br>
+        Just you, me, and a life
+        <br>
+        that feels like home. 🏠❤️
+
+    </div>
+
+
+    <div class="future-secret">
+        That's the future I secretly want.
+    </div>
+
+
+    <div class="future-buttons">
+
+        <button
+            class="back"
+            onclick="backToHere()">
+
+            ← BACK
+
+        </button>
+
+        <button onclick="showFinalPage()">
+
+            NEXT ❤️
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- ==================================================
+     FINAL PAGE — BEFORE YOU CLOSE THIS
+================================================== -->
+
+<div class="screen hidden final-screen" id="finalScreen">
+
+    <div class="final-content">
+
+        <div class="final-heart">
+            ❤️
+        </div>
+
+        <div class="final-small">
+            BEFORE YOU CLOSE THIS...
+        </div>
+
+
+        <h1 class="final-title">
+            One last thing...
+        </h1>
+
+
+        <div class="final-letter">
+
+            <p>
+                I don't know what our future will look like.
+            </p>
+
+            <p>
+                I don't know how many silly fights we'll have,
+                <br>
+                how many random plans we'll make,
+                <br>
+                or how many ordinary evenings we'll spend together.
+            </p>
+
+            <p>
+                But I know one thing...
+            </p>
+
+            <p class="highlight">
+                If I get to choose my person,
+                <br>
+                I'd choose you.
+            </p>
+
+            <p>
+                Not just for the beautiful days.
+                <br>
+                Not just when everything is easy.
+            </p>
+
+            <p class="big-highlight">
+                For the messy days.
+                <br>
+                The boring days.
+                <br>
+                The stupid arguments.
+                <br>
+                The quiet moments.
+                <br>
+                All of it.
+            </p>
+
+            <p>
+                Because somewhere along the way,
+                <br>
+                you stopped being just someone I love...
+            </p>
+
+            <p class="highlight">
+                and became someone I can't imagine
+                <br>
+                my life without. ❤️
+            </p>
+
+        </div>
+
+
+        <div class="final-pause">
+            · · ·
+        </div>
+
+
+        <h2 class="final-question">
+            So, Rakshith...
+        </h2>
+
+
+        <div class="final-main">
+            "If life lets me,
+            <br>
+            I want to do all of it with you." ❤️
+        </div>
+
+
+        <div class="signature">
+
+            — <strong>Harsha</strong>
+
+            <br>
+
+            <em>
+                your girl, your biggest headache,
+                <br>
+                and hopefully... your forever. 🫶
+            </em>
+
+        </div>
+
+
+        <div class="final-footer">
+
+            The Rakshith Effect ❤️
+
+            <span>
+                No cure found. No cure wanted.
+            </span>
+
+        </div>
+
+
+        <div class="final-buttons">
+
+            <button
+                class="back"
+                onclick="backToFuture()">
+
+                ← BACK
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+
+/* ==================================================
+   START SCAN
+================================================== */
+
+function startScan(){
+
+    document
+        .getElementById("opening")
+        .classList.add("hidden");
+
+    document
+        .getElementById("scanScreen")
+        .classList.remove("hidden");
+
+
+    let progress = 0;
+
+    const progressBar =
+        document.getElementById("progress");
+
+    const percentage =
+        document.getElementById("percentage");
+
+
+    const results = [
+        "r1",
+        "r2",
+        "r3",
+        "r4",
+        "r5",
+        "r6"
+    ];
+
+
+    let resultIndex = 0;
+
+
+    const scanInterval =
+        setInterval(function(){
+
+            progress++;
+
+            progressBar.style.width =
+                progress + "%";
+
+            percentage.innerText =
+                progress;
+
+
+            if(
+                progress % 15 === 0 &&
+                resultIndex < results.length
+            ){
+
+                document
+                    .getElementById(results[resultIndex])
+                    .classList.add("show");
+
+                resultIndex++;
+
+            }
+
+
+            if(progress >= 100){
+
+                clearInterval(scanInterval);
+
+                document
+                    .getElementById("continueBtn")
+                    .style.display =
+                    "inline-block";
+
+            }
+
+        },60);
+
+}
+
+
+/* ==================================================
+   NOTICE INTRO
+================================================== */
+
+function showNoticeIntro(){
+
+    document
+        .getElementById("scanScreen")
+        .classList.add("hidden");
+
+    document
+        .getElementById("noticeIntro")
+        .classList.remove("hidden");
+
+}
+
+
+/* ==================================================
+   NOTICE DATA
+================================================== */
+
+const notices = [
+
+    {
+        title:"Your Voice 🎧",
+
+        text:
+        "Un voice-ku enna special nu ennaala explain panna mudiyadhu... but somehow, adha ketta udane enakku oru different feeling varum. Even a simple 'hey' from you can change my whole mood. ❤️"
+    },
+
+
+    {
+        title:"That Shy Face 🥹",
+
+        text:
+        "Nee shy aagumbodhu vara andha cute expression... honestly, adha paatha naan unna tease pannaama irukka maaten. 😭❤️"
+    },
+
+
+    {
+        title:"Your Smile ☺️",
+
+        text:
+        "Un smile paatha udane naanum smile panniduven. Sometimes I don't even realise I'm staring at you... I just like seeing you happy."
+    },
+
+
+    {
+        title:"Your Child Anger 😭",
+
+        text:
+        "Un child anger-ku naan enna solla... 😂 Nee kovama irukka try pannalum sometimes romba cute-ah dhaan iruppa. Adha paathu naan serious-ah irukka mudiyama poidum."
+    },
+
+
+    {
+        title:"Your Presence ❤️",
+
+        text:
+        "Sometimes nee edhuvum pannave vendam. Just being there feels enough. Un presence itself has become something I look for."
+    }
+
+];
+
+
+let currentNotice = 0;
+
+
+/* ==================================================
+   START NOTICES
+================================================== */
+
+function startNotices(){
+
+    currentNotice = 0;
+
+    document
+        .getElementById("noticeIntro")
+        .classList.add("hidden");
+
+    document
+        .getElementById("noticeScreen")
+        .classList.remove("hidden");
+
+    updateNotice();
+
+}
+
+
+/* ==================================================
+   UPDATE NOTICE
+================================================== */
+
+function updateNotice(){
+
+    const card =
+        document.getElementById("noticeCard");
+
+    card.classList.remove("fade");
+
+    void card.offsetWidth;
+
+    card.classList.add("fade");
+
+
+    document
+        .getElementById("noticeNumber")
+        .innerText =
+        String(currentNotice + 1)
+        .padStart(2,"0")
+        + " / 05";
+
+
+    document
+        .getElementById("noticeTitle")
+        .innerText =
+        notices[currentNotice].title;
+
+
+    document
+        .getElementById("noticeText")
+        .innerText =
+        notices[currentNotice].text;
+
+}
+
+
+/* ==================================================
+   NEXT NOTICE
+================================================== */
+
+function nextNotice(){
+
+    if(
+        currentNotice <
+        notices.length - 1
+    ){
+
+        currentNotice++;
+
+        updateNotice();
+
+    }else{
+
+        document
+            .getElementById("noticeScreen")
+            .classList.add("hidden");
+
+        document
+            .getElementById("moodScreen")
+            .classList.remove("hidden");
+
+    }
+
+}
+
+
+/* ==================================================
+   BACK NOTICE
+================================================== */
+
+function previousNotice(){
+
+    if(currentNotice > 0){
+
+        currentNotice--;
+
+        updateNotice();
+
+    }else{
+
+        document
+            .getElementById("noticeScreen")
+            .classList.add("hidden");
+
+        document
+            .getElementById("noticeIntro")
+            .classList.remove("hidden");
+
+    }
+
+}
+
+
+/* ==================================================
+   MOOD DATA
+================================================== */
+
+const moodData = {
+
+    miss:{
+
+        icon:"🥺",
+
+        title:"Then come here. 🫂",
+
+        text:
+        "Naanum unna miss pannitu dhaan iruken. I wish ippo un pakkathula irundhu konjam pesitu, konjam sirichitu, summa unna paathute irukka mudinjirundha. 🥺❤️"
+
+    },
+
+
+    bad:{
+
+        icon:"🫂",
+
+        title:"It's okay. I'm here.",
+
+        text:
+        "Innaiku day epdi poirundhaalum, ippo ellathayum solve panna try panna vendam. Konjam breathe pannu. Nee thaniya handle panna vendiyadhu illa. Enkitta vandhuru. Naan kekkuren. ❤️"
+
+    },
+
+
+    angry:{
+
+        icon:"😤",
+
+        title:"Okay okay... kovama iru.",
+
+        text:
+        "Kovama irukka unakku full permission. 😭 But enna avoid pannitu thaniya ukkandhukaadha. Namma sanda potaalum, I'm still here. Konjam calm aana enkitta vandhuru. ❤️"
+
+    },
+
+
+    want:{
+
+        icon:"❤️",
+
+        title:"Then stay with me.",
+
+        text:
+        "No explanations. No fixing anything. No need to say anything. Just stay with me for a while. Sometimes un presence mattum podhum. 🫂❤️"
+
+    }
+
+};
+
+
+/* ==================================================
+   SHOW MOOD
+================================================== */
+
+function showMood(type){
+
+    const data =
+        moodData[type];
+
+
+    document
+        .getElementById("moodScreen")
+        .classList.add("hidden");
+
+
+    document
+        .getElementById("responseScreen")
+        .classList.remove("hidden");
+
+
+    document
+        .getElementById("responseIcon")
+        .innerText =
+        data.icon;
+
+
+    document
+        .getElementById("responseTitle")
+        .innerText =
+        data.title;
+
+
+    document
+        .getElementById("responseText")
+        .innerText =
+        data.text;
+
+}
+
+
+/* ==================================================
+   BACK TO MOOD
+================================================== */
+
+function backToMood(){
+
+    document
+        .getElementById("responseScreen")
+        .classList.add("hidden");
+
+    document
+        .getElementById("moodScreen")
+        .classList.remove("hidden");
+
+}
+
+
+/* ==================================================
+   IF YOU WERE HERE PAGE
+================================================== */
+
+function showHerePage(){
+
+    document
+        .getElementById("responseScreen")
+        .classList.add("hidden");
+
+    document
+        .getElementById("hereScreen")
+        .classList.remove("hidden");
+
+}
+
+
+/* ==================================================
+   BACK TO RESPONSE
+================================================== */
+
+function backToResponse(){
+
+    document
+        .getElementById("hereScreen")
+        .classList.add("hidden");
+
+    document
+        .getElementById("responseScreen")
+        .classList.remove("hidden");
+
+}
+
+
+/* ==================================================
+   NOTHING FANCY PAGE
+================================================== */
+
+function showFuturePage(){
+
+    document
+        .getElementById("hereScreen")
+        .classList.add("hidden");
+
+    document
+        .getElementById("futureScreen")
+        .classList.remove("hidden");
+
+}
+
+
+/* ==================================================
+   BACK TO HERE PAGE
+================================================== */
+
+function backToHere(){
+
+    document
+        .getElementById("futureScreen")
+        .classList.add("hidden");
+
+    document
+        .getElementById("hereScreen")
+        .classList.remove("hidden");
+
+}
+
+
+/* ==================================================
+   FINAL PAGE
+================================================== */
+
+function showFinalPage(){
+
+    document
+        .getElementById("futureScreen")
+        .classList.add("hidden");
+
+    document
+        .getElementById("finalScreen")
+        .classList.remove("hidden");
+
+}
+
+
+/* ==================================================
+   BACK TO FUTURE PAGE
+================================================== */
+
+function backToFuture(){
+
+    document
+        .getElementById("finalScreen")
+        .classList.add("hidden");
+
+    document
+        .getElementById("futureScreen")
+        .classList.remove("hidden");
+
+}
+
+
+</script>
+
+</body>
+</html>
